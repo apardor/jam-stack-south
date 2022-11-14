@@ -1,21 +1,43 @@
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+const contentful = require('contentful')
 
-export async function getStaticProps () {
-  // Call an external API endpoint to get post.
-  const res = await fetch('http://localhost:3000/api/hello')
+
+const client = contentful.createClient({
+  space: '9hlpa7svnavx',
+  environment: 'master',
+  accessToken: 'dTQjEwq25CAhkwM4sJNg-ZQtHOmfB2iac0OC7vosCBY'
+})
+
+function handler(req, res) {
+  return client.getEntry('1YVs7lzkCnXcId3oq7wFwy')
+  .then((entry) => entry.fields.products)
+  .catch(console.error)
+
+}
+
+
+
+export async function getStaticProps() {
+  const res = await handler();
   return {
     props: {
-      post: await res.json(),
-}, }
+      post:  res,
+    },
+  };
 }
-// posts will be populated at build time by getStaticProps()
 
-
-export default function Home({post}) {
+export default function Home({ post }) {
   return (
-  <div>
-    {post.friends.map((el) => <h1 key={el.id}>{el.name}</h1>)}
-   
-  </div>
-  )
+    <div>
+      <Head>
+        <title>Jam</title>
+        <meta property="og:jam" content="Jam" key="title" />
+      </Head>
+      <div>
+        {post.friends.map((el) => (
+          <h1 key={el.id}>{el.name}</h1>
+        ))}
+      </div>
+    </div>
+  );
 }
