@@ -1,6 +1,6 @@
 const contentful = require('contentful')
-const space = process.env.NEXT_PUBLIC_SPACE
-const access = process.env.NEXT_PUBLIC_ACCESS
+const space = process.env.SPACE
+const access = process.env.ACCESS
 // console.log(space, access, 'env vari')
 
 const client = contentful.createClient({
