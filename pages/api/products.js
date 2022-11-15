@@ -11,5 +11,4 @@ export default function handler(req, res) {
   return client.getEntry('1YVs7lzkCnXcId3oq7wFwy')
   .then((entry) => entry.fields.products)
   .catch(console.error)
-
 }

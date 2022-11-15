@@ -1,8 +1,6 @@
 import Head from "next/head";
 import handler from "./api/products";
 
-
-
 export async function getStaticProps() {
   const res = await handler();
   return {
