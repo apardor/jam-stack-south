@@ -1,11 +1,10 @@
 const contentful = require('contentful')
-const space = '9hlpa7svnavx'
-const access = 'dTQjEwq25CAhkwM4sJNg-ZQtHOmfB2iac0OC7vosCBY'
+require('dotenv').config();
 
 const client = contentful.createClient({
-  space: space,
+  space: process.env.SPACE_KEY,
   environment: 'master',
-  accessToken: access
+  accessToken: process.env.ACCESS_KEY,
 })
 export default async function handler(req, res) {
   return client.getEntry('1YVs7lzkCnXcId3oq7wFwy')
