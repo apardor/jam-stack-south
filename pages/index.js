@@ -1,19 +1,5 @@
 import Head from "next/head";
-const contentful = require('contentful')
-
-
-const client = contentful.createClient({
-  space: '9hlpa7svnavx',
-  environment: 'master',
-  accessToken: 'dTQjEwq25CAhkwM4sJNg-ZQtHOmfB2iac0OC7vosCBY'
-})
-
-function handler(req, res) {
-  return client.getEntry('1YVs7lzkCnXcId3oq7wFwy')
-  .then((entry) => entry.fields.products)
-  .catch(console.error)
-
-}
+import handler from "./api/products";
 
 
 
@@ -34,8 +20,11 @@ export default function Home({ post }) {
         <meta property="og:jam" content="Jam" key="title" />
       </Head>
       <div>
-        {post.friends.map((el) => (
-          <h1 key={el.id}>{el.name}</h1>
+        {post.products.data.items.map((el) => (
+          <div key={el.id}>
+          <h3>{el.name}</h3>
+          <p>{el.price}</p>
+          </div>
         ))}
       </div>
     </div>
