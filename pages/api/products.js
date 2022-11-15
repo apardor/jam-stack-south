@@ -1,14 +1,15 @@
 const contentful = require('contentful')
-const env = require('dotenv').config();
+const space = process.env.NEXT_PUBLIC_SPACE
+const access = process.env.NEXT_PUBLIC_ACCESS
+// console.log(space, access, 'env vari')
 
 const client = contentful.createClient({
-  space: process.env.SPACE,
+  space: space,
   environment: 'master',
-  accessToken: process.env.ACCESS
+  accessToken: access
 })
-
-export default function handler(req, res) {
+export default async function handler(req, res) {
   return client.getEntry('1YVs7lzkCnXcId3oq7wFwy')
   .then((entry) => entry.fields.products)
-  .catch(console.error)
+ .catch(console.error)
 }
