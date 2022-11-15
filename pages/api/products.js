@@ -1,7 +1,6 @@
 const contentful = require('contentful')
-const space = process.env.NEXT_PRIVATE_SPACE
-const access = process.env.NEXT_PRIVATE_ACCESS
-// console.log(space, access, 'env vari')
+const space = '9hlpa7svnavx'
+const access = 'dTQjEwq25CAhkwM4sJNg-ZQtHOmfB2iac0OC7vosCBY'
 
 const client = contentful.createClient({
   space: space,
