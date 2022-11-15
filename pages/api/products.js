@@ -1,6 +1,4 @@
 const contentful = require('contentful')
-// require('dotenv').config();
-
 const space = '9hlpa7svnavx'
 const access = 'dTQjEwq25CAhkwM4sJNg-ZQtHOmfB2iac0OC7vosCBY'
 
