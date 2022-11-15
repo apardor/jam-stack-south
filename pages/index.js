@@ -18,7 +18,7 @@ export default function Home({ post }) {
         <meta property="og:jam" content="Jam" key="title" />
       </Head>
       <div>
-        <h1>Jam South test</h1>
+        <h1>Jam South test with keys</h1>
         {post.products.data.items.map((el) => (
           <div key={el.id}>
           <h3>{el.name}</h3>

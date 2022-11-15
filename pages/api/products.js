@@ -1,5 +1,4 @@
 const contentful = require('contentful')
-require('dotenv').config();
 
 const client = contentful.createClient({
   space: process.env.SPACE_KEY,
